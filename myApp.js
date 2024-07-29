@@ -6,8 +6,15 @@ const mongoURI = "mongodb+srv://rajkumar:rajkumar12102001@cluster0.plwoirb.mongo
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
-let Person;
-
+let personSchema = new mongoose.Schema(
+  { name: String,
+    required: true
+   },
+  { age: Number ,
+    required:true
+  },
+  { favoriteFoods: [String] });
+let person = mongoose.model('person',personSchema) 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
 };
