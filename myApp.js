@@ -1,7 +1,11 @@
 require('dotenv').config();
+const mongoose = require('mongoose');
 
-const mongoose = require("mongoose")
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+// Update this to your correct MongoDB connection string
+const mongoURI = "mongodb+srv://rajkumar:rajkumar12102001@cluster0.plwoirb.mongodb.net/fcc-mongodb-and-mongoose?retryWrites=true&w=majority";
+
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+
 let Person;
 
 const createAndSavePerson = (done) => {
