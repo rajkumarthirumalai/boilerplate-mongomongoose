@@ -5,16 +5,14 @@ const mongoose = require('mongoose');
 const mongoURI = "mongodb+srv://rajkumar:rajkumar12102001@cluster0.plwoirb.mongodb.net/fcc-mongodb-and-mongoose?retryWrites=true&w=majority";
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+let personSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String]
+});
+const Person = mongoose.model("Person", personSchema);
 
-let personSchema = new mongoose.Schema(
-  { name: String,
-    required: true
-   },
-  { age: Number ,
-    required:true
-  },
-  { favoriteFoods: [String] });
-  const Person = mongoose.model("Person", personSchema);
+console.log("Hiii",Person)
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
 };
